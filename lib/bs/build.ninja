@@ -1,0 +1,24 @@
+rescript = 1
+g_finger := F:\codeRepo\web\rescript\vite-res-todolist\node_modules\@rescript\react\lib\ocaml\install.stamp
+rule astj
+  command = "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\.pnpm\rescript@10.0.1\node_modules\rescript\win32\bsc.exe"  -bs-v 10.0.1 -bs-jsx 3 -bs-super-errors -absname -bs-ast -o $out $i
+o src\App.ast : astj ..\..\src\App.res
+rule deps
+  command = "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\.pnpm\rescript@10.0.1\node_modules\rescript\win32\bsb_helper.exe" -hash 01acf79cbf4be320c0379f66fb52f9be -bs-ns MyResApp $in
+  restat = 1
+o src\App.d : deps src\App.ast
+rule mij
+  command = "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\.pnpm\rescript@10.0.1\node_modules\rescript\win32\bsc.exe" -bs-ns MyResApp -I . -I "src\assets" -I src -I "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\@rescript\react\lib\ocaml" -bs-super-errors  -bs-gentype -bs-package-name my-res-app -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src\App-MyResApp.cmj src\App-MyResApp.cmi ..\..\src\App.bs.js : mij src\App.ast
+o src\Test.ast : astj ..\..\src\Test.res
+o src\Test.d : deps src\Test.ast
+o src\Test-MyResApp.cmj src\Test-MyResApp.cmi ..\..\src\Test.bs.js : mij src\Test.ast
+o src\index.ast : astj ..\..\src\index.res
+o src\index.d : deps src\index.ast
+o src\index-MyResApp.cmj src\index-MyResApp.cmi ..\..\src\index.bs.js : mij src\index.ast
+rule build_package
+  command = "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\.pnpm\rescript@10.0.1\node_modules\rescript\win32\bsc.exe" -w -49 -color always -no-alias-deps  $i
+  restat = 1
+o MyResApp.cmi : build_package MyResApp.mlmap

@@ -1,0 +1,21 @@
+rescript = 1
+rule cp
+  command = cmd.exe /C copy /Y $i $out >NUL
+rule touch
+ command = cmd.exe /C type nul >>$out & copy $out+,, >NUL
+o App-MyResApp.cmi : cp ..\bs\src\App-MyResApp.cmi
+o App-MyResApp.cmj : cp ..\bs\src\App-MyResApp.cmj
+o App-MyResApp.cmt : cp ..\bs\src\App-MyResApp.cmt
+o App.res : cp ..\..\src\App.res
+o Test-MyResApp.cmi : cp ..\bs\src\Test-MyResApp.cmi
+o Test-MyResApp.cmj : cp ..\bs\src\Test-MyResApp.cmj
+o Test-MyResApp.cmt : cp ..\bs\src\Test-MyResApp.cmt
+o Test.res : cp ..\..\src\Test.res
+o index-MyResApp.cmi : cp ..\bs\src\index-MyResApp.cmi
+o index-MyResApp.cmj : cp ..\bs\src\index-MyResApp.cmj
+o index-MyResApp.cmt : cp ..\bs\src\index-MyResApp.cmt
+o index.res : cp ..\..\src\index.res
+o MyResApp.cmi : cp ..\bs\MyResApp.cmi
+o MyResApp.cmj : cp ..\bs\MyResApp.cmj
+o MyResApp.cmt : cp ..\bs\MyResApp.cmt
+build install.stamp : touch App-MyResApp.cmi App-MyResApp.cmj Test-MyResApp.cmi Test-MyResApp.cmj index-MyResApp.cmi index-MyResApp.cmj MyResApp.cmi MyResApp.cmj
