@@ -4,11 +4,11 @@ rule astj
   command = "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\.pnpm\rescript@10.0.1\node_modules\rescript\win32\bsc.exe"  -bs-v 10.0.1 -bs-jsx 3 -bs-super-errors -absname -bs-ast -o $out $i
 o src\App.ast : astj ..\..\src\App.res
 rule deps
-  command = "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\.pnpm\rescript@10.0.1\node_modules\rescript\win32\bsb_helper.exe" -hash 01acf79cbf4be320c0379f66fb52f9be -bs-ns MyResApp $in
+  command = "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\.pnpm\rescript@10.0.1\node_modules\rescript\win32\bsb_helper.exe" -hash 73d53f08cd2a8b86e4e8919f06aefd60 -bs-ns MyResApp $in
   restat = 1
 o src\App.d : deps src\App.ast
 rule mij
-  command = "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\.pnpm\rescript@10.0.1\node_modules\rescript\win32\bsc.exe" -bs-ns MyResApp -I . -I "src\assets" -I src -I "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\@rescript\react\lib\ocaml" -bs-super-errors  -bs-gentype -bs-package-name my-res-app -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  command = "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\.pnpm\rescript@10.0.1\node_modules\rescript\win32\bsc.exe" -bs-ns MyResApp -I . -I "src\assets" -I "src\styles" -I src -I "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\@rescript\react\lib\ocaml" -bs-super-errors  -bs-gentype -bs-package-name my-res-app -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
   dyndep = 1
   restat = 1
 o src\App-MyResApp.cmj src\App-MyResApp.cmi ..\..\src\App.bs.js : mij src\App.ast
@@ -18,6 +18,15 @@ o src\Test-MyResApp.cmj src\Test-MyResApp.cmi ..\..\src\Test.bs.js : mij src\Tes
 o src\index.ast : astj ..\..\src\index.res
 o src\index.d : deps src\index.ast
 o src\index-MyResApp.cmj src\index-MyResApp.cmi ..\..\src\index.bs.js : mij src\index.ast
+o src\AddTask.ast : astj ..\..\src\AddTask.res
+o src\AddTask.d : deps src\AddTask.ast
+o src\AddTask-MyResApp.cmj src\AddTask-MyResApp.cmi ..\..\src\AddTask.bs.js : mij src\AddTask.ast
+o src\TaskItem.ast : astj ..\..\src\TaskItem.res
+o src\TaskItem.d : deps src\TaskItem.ast
+o src\TaskItem-MyResApp.cmj src\TaskItem-MyResApp.cmi ..\..\src\TaskItem.bs.js : mij src\TaskItem.ast
+o src\TaskList.ast : astj ..\..\src\TaskList.res
+o src\TaskList.d : deps src\TaskList.ast
+o src\TaskList-MyResApp.cmj src\TaskList-MyResApp.cmi ..\..\src\TaskList.bs.js : mij src\TaskList.ast
 rule build_package
   command = "F:\codeRepo\web\rescript\vite-res-todolist\node_modules\.pnpm\rescript@10.0.1\node_modules\rescript\win32\bsc.exe" -w -49 -color always -no-alias-deps  $i
   restat = 1

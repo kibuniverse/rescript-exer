@@ -15,7 +15,19 @@ o index-MyResApp.cmi : cp ..\bs\src\index-MyResApp.cmi
 o index-MyResApp.cmj : cp ..\bs\src\index-MyResApp.cmj
 o index-MyResApp.cmt : cp ..\bs\src\index-MyResApp.cmt
 o index.res : cp ..\..\src\index.res
+o AddTask-MyResApp.cmi : cp ..\bs\src\AddTask-MyResApp.cmi
+o AddTask-MyResApp.cmj : cp ..\bs\src\AddTask-MyResApp.cmj
+o AddTask-MyResApp.cmt : cp ..\bs\src\AddTask-MyResApp.cmt
+o AddTask.res : cp ..\..\src\AddTask.res
+o TaskItem-MyResApp.cmi : cp ..\bs\src\TaskItem-MyResApp.cmi
+o TaskItem-MyResApp.cmj : cp ..\bs\src\TaskItem-MyResApp.cmj
+o TaskItem-MyResApp.cmt : cp ..\bs\src\TaskItem-MyResApp.cmt
+o TaskItem.res : cp ..\..\src\TaskItem.res
+o TaskList-MyResApp.cmi : cp ..\bs\src\TaskList-MyResApp.cmi
+o TaskList-MyResApp.cmj : cp ..\bs\src\TaskList-MyResApp.cmj
+o TaskList-MyResApp.cmt : cp ..\bs\src\TaskList-MyResApp.cmt
+o TaskList.res : cp ..\..\src\TaskList.res
 o MyResApp.cmi : cp ..\bs\MyResApp.cmi
 o MyResApp.cmj : cp ..\bs\MyResApp.cmj
 o MyResApp.cmt : cp ..\bs\MyResApp.cmt
-build install.stamp : touch App-MyResApp.cmi App-MyResApp.cmj Test-MyResApp.cmi Test-MyResApp.cmj index-MyResApp.cmi index-MyResApp.cmj MyResApp.cmi MyResApp.cmj
+build install.stamp : touch App-MyResApp.cmi App-MyResApp.cmj Test-MyResApp.cmi Test-MyResApp.cmj index-MyResApp.cmi index-MyResApp.cmj AddTask-MyResApp.cmi AddTask-MyResApp.cmj TaskItem-MyResApp.cmi TaskItem-MyResApp.cmj TaskList-MyResApp.cmi TaskList-MyResApp.cmj MyResApp.cmi MyResApp.cmj
